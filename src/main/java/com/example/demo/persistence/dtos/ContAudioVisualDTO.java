@@ -6,6 +6,15 @@ public class ContAudioVisualDTO {
     private double calificacion;
     private String comentario;
 
+    private Integer estadoVisualizacionId;
+
+    private Integer tipoContenidoId;
+
+    private Integer plataformaId;
+
+    private Integer generoId;
+
+
     public Integer getCodigoContAudioVisual() {
         return codigoContAudioVisual;
     }
@@ -36,5 +45,37 @@ public class ContAudioVisualDTO {
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+
+    public Integer getEstadoVisualizacionId() {
+        return estadoVisualizacionId;
+    }
+
+    public void setEstadoVisualizacionId(Integer estadoVisualizacionId) {
+        this.estadoVisualizacionId = estadoVisualizacionId;
+    }
+
+    public Integer getTipoContenidoId() {
+        return tipoContenidoId;
+    }
+
+    public void setTipoContenidoId(Integer tipoContenidoId) {
+        this.tipoContenidoId = tipoContenidoId;
+    }
+
+    public Integer getPlataformaId() {
+        return plataformaId;
+    }
+
+    public void setPlataformaId(Integer plataformaId) {
+        this.plataformaId = plataformaId;
+    }
+
+    public Integer getGeneroId() {
+        return generoId;
+    }
+
+    public void setGeneroId(Integer generoId) {
+        this.generoId = generoId;
     }
 }

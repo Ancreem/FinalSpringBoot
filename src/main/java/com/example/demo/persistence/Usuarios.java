@@ -49,12 +49,22 @@ public class Usuarios {
         this.email = email;
     }
 
-    //    public UsuariosDTO toDTO(){
-//        UsuariosDTO dto = new UsuariosDTO();
-//        dto.setCodigoUsuarios(this.codigoUsuarios);
-//        dto.setNombre(this.nombre);
-//        dto.setApellido(this.apellido);
-//        dto.setEmail(this.email);
-//        return dto;
-//    }
+    public UsuariosDTO toDTO(){
+        UsuariosDTO dto = new UsuariosDTO();
+        dto.setCodigoUsuarios(this.codigoUsuarios);
+        dto.setNombre(this.nombre);
+        dto.setApellido(this.apellido);
+        dto.setEmail(this.email);
+        return dto;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuarios{" +
+                "codigoUsuarios=" + codigoUsuarios +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

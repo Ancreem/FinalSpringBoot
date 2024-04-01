@@ -1,5 +1,6 @@
 package com.example.demo.persistence;
 
+import com.example.demo.persistence.dtos.TipoContenidoDTO;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -37,5 +38,14 @@ public class TipoContenido {
 
     public void setContAudioVisuals(List<ContAudioVisual> contAudioVisuals) {
         this.contAudioVisuals = contAudioVisuals;
+    }
+
+    public TipoContenidoDTO toDTO(){
+        TipoContenidoDTO dto = new TipoContenidoDTO();
+
+        dto.setCodigoTipoContenido(this.codigoTipoContenido);
+        dto.setNombre(this.nombre);
+
+        return dto;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.demo.persistence;
 
+import com.example.demo.persistence.dtos.EstadoVisualizacionDTO;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -39,5 +40,23 @@ public class EstadoVisualizacion {
 
     public void setContAudioVisuals(List<ContAudioVisual> contAudioVisuals) {
         this.contAudioVisuals = contAudioVisuals;
+    }
+
+    public EstadoVisualizacionDTO toDTO(){
+        EstadoVisualizacionDTO dto = new EstadoVisualizacionDTO();
+
+        dto.setCodigoEstadoVisualizacion(this.codigoEstadoVisualizacion);
+        dto.setNombre(this.nombre);
+
+        return dto;
+    }
+
+    @Override
+    public String toString() {
+        return "EstadoVisualizacion{" +
+                "codigoEstadoVisualizacion=" + codigoEstadoVisualizacion +
+                ", nombre='" + nombre + '\'' +
+                ", contAudioVisuals=" + contAudioVisuals +
+                '}';
     }
 }

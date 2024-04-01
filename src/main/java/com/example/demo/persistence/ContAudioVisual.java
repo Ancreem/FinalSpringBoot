@@ -106,14 +106,32 @@ public class ContAudioVisual {
         this.comentario = comentario;
     }
 
-    //    public ContAudioVisualDTO toDTO(){
-//        ContAudioVisualDTO dto = new ContAudioVisualDTO();
-//        dto.setCodigoContAudioVisual(this.codigoContAudioVisual);
-//        dto.setNombre(this.nombre);
-//        dto.setCalificacion(this.calificacion);
-//        dto.setComentario(this.comentario);
-//        return dto;
-//    }
+    public ContAudioVisualDTO toDTO(){
+        ContAudioVisualDTO dto = new ContAudioVisualDTO();
 
+        dto.setCodigoContAudioVisual(this.codigoContAudioVisual);
+        dto.setNombre(this.nombre);
+        dto.setEstadoVisualizacionId(this.estadoVisualizacions != null ? this.estadoVisualizacions.getCodigoEstadoVisualizacion() : null);
+        dto.setTipoContenidoId(this.tipoContenido != null ? this.tipoContenido.getCodigoTipoContenido() : null);
+        dto.setPlataformaId(this.plataforma != null ? this.plataforma.getCodigoPlataforma() : null);
+        dto.setGeneroId(this.genero != null ? this.genero.getCodigoGenero() : null);
+        dto.setCalificacion(this.calificacion);
+        dto.setComentario(this.comentario);
 
+        return dto;
+    }
+
+    @Override
+    public String toString() {
+        return "ContAudioVisual{" +
+                "codigoContAudioVisual=" + codigoContAudioVisual +
+                ", nombre='" + nombre + '\'' +
+                ", estadoVisualizacions=" + estadoVisualizacions +
+                ", tipoContenido=" + tipoContenido +
+                ", plataforma=" + plataforma +
+                ", genero=" + genero +
+                ", calificacion=" + calificacion +
+                ", comentario='" + comentario + '\'' +
+                '}';
+    }
 }

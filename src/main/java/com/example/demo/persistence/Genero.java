@@ -1,5 +1,6 @@
 package com.example.demo.persistence;
 
+import com.example.demo.persistence.dtos.GeneroDTO;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -37,5 +38,24 @@ public class Genero {
 
     public void setContAudioVisuals(List<ContAudioVisual> contAudioVisuals) {
         this.contAudioVisuals = contAudioVisuals;
+    }
+
+    public GeneroDTO toDTO(){
+        GeneroDTO dto = new GeneroDTO();
+
+        dto.setCodigoGenero(this.codigoGenero);
+        dto.setNombre(this.nombre);
+
+        return dto;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Genero{" +
+                "codigoGenero=" + codigoGenero +
+                ", nombre='" + nombre + '\'' +
+                ", contAudioVisuals=" + contAudioVisuals +
+                '}';
     }
 }

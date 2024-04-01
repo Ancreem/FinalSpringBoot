@@ -1,5 +1,6 @@
 package com.example.demo.persistence;
 
+import com.example.demo.persistence.dtos.PlataformaDTO;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -37,5 +38,24 @@ public class Plataforma {
 
     public void setContAudioVisuals(List<ContAudioVisual> contAudioVisuals) {
         this.contAudioVisuals = contAudioVisuals;
+    }
+
+    public PlataformaDTO toDTO(){
+        PlataformaDTO dto = new PlataformaDTO();
+
+        dto.setCodigoPlataforma(this.codigoPlataforma);
+        dto.setNombre(this.nombre);
+
+        return dto;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Plataforma{" +
+                "codigoPlataforma=" + codigoPlataforma +
+                ", nombre='" + nombre + '\'' +
+                ", contAudioVisuals=" + contAudioVisuals +
+                '}';
     }
 }
