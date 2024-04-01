@@ -1,19 +1,20 @@
 package com.example.demo.domain.security;
 
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
-
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.example.demo.domain.security.Constans.*;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
+
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+
+import static com.example.demo.domain.security.Constants.*;
 
 @Configuration
-public class JWTAuthtenticationConfig {
+public class JWTAuthorizationConfig {
 
     public String getJWTToken(String username) {
         List<GrantedAuthority> grantedAuthorities = AuthorityUtils
@@ -33,5 +34,4 @@ public class JWTAuthtenticationConfig {
 
         return "Bearer " + token;
     }
-
 }
