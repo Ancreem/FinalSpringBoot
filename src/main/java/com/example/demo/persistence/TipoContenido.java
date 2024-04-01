@@ -2,20 +2,25 @@ package com.example.demo.persistence;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class TipoContenido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer codigoTipoContenido;
     @Column(name= "nombre",nullable = false)
     private String nombre;
 
-    public Integer getId() {
-        return id;
+    @OneToMany(mappedBy = "tipoContenido", cascade = CascadeType.ALL)
+    private List<ContAudioVisual> contAudioVisuals;
+
+    public Integer getCodigoTipoContenido() {
+        return codigoTipoContenido;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setCodigoTipoContenido(Integer codigoTipoContenido) {
+        this.codigoTipoContenido = codigoTipoContenido;
     }
 
     public String getNombre() {
@@ -24,5 +29,13 @@ public class TipoContenido {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public List<ContAudioVisual> getContAudioVisuals() {
+        return contAudioVisuals;
+    }
+
+    public void setContAudioVisuals(List<ContAudioVisual> contAudioVisuals) {
+        this.contAudioVisuals = contAudioVisuals;
     }
 }

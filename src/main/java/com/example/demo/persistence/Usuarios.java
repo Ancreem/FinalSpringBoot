@@ -49,7 +49,7 @@ public class Usuarios {
         this.email = email;
     }
 
-//    public UsuariosDTO toDTO(){
+    //    public UsuariosDTO toDTO(){
 //        UsuariosDTO dto = new UsuariosDTO();
 //        dto.setCodigoUsuarios(this.codigoUsuarios);
 //        dto.setNombre(this.nombre);

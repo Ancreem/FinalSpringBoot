@@ -10,6 +10,7 @@ import java.awt.*;
 import java.util.List;
 
 @Entity
+@Table(name = "cont_audio_visual")
 public class ContAudioVisual {
 
     @Id
@@ -18,21 +19,22 @@ public class ContAudioVisual {
     @Column(name= "nombre",nullable = false)
     private String nombre;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @Column(name= "estado_visualizacion_id",nullable = false)
-    private EstadoVisualizacion estadoVisualizacion;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "estado_visualizacion_id")
+    private EstadoVisualizacion estadoVisualizacions;
 
-//    @OneToMany(mappedBy = "cont_audio_visual", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @Column(name= "tipo_contenido_id",nullable = false)
-//    private List<TipoContenido> tipoContenido;
-//
-//    @OneToMany(mappedBy = "cont_audio_visual", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @Column(name= "plataforma_id",nullable = false)
-//    private List<Plataforma> plataforma;
-//
-//    @OneToMany(mappedBy = "cont_audio_visual", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @Column(name= "genero_id",nullable = false)
-//    private List<Genero> genero;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "tipo_contenido_id")
+    private TipoContenido tipoContenido;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "plataforma_id")
+    private Plataforma plataforma;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "genero_id")
+    private Genero genero;
+
 
     @Column(name= "calificacion",nullable = true)
     private double calificacion;
@@ -56,12 +58,36 @@ public class ContAudioVisual {
         this.nombre = nombre;
     }
 
-    public EstadoVisualizacion getEstadoVisualizacion() {
-        return estadoVisualizacion;
+    public EstadoVisualizacion getEstadoVisualizacions() {
+        return estadoVisualizacions;
     }
 
-    public void setEstadoVisualizacion(EstadoVisualizacion estadoVisualizacion) {
-        this.estadoVisualizacion = estadoVisualizacion;
+    public void setEstadoVisualizacions(EstadoVisualizacion estadoVisualizacions) {
+        this.estadoVisualizacions = estadoVisualizacions;
+    }
+
+    public TipoContenido getTipoContenido() {
+        return tipoContenido;
+    }
+
+    public void setTipoContenido(TipoContenido tipoContenido) {
+        this.tipoContenido = tipoContenido;
+    }
+
+    public Plataforma getPlataforma() {
+        return plataforma;
+    }
+
+    public void setPlataforma(Plataforma plataforma) {
+        this.plataforma = plataforma;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
     }
 
     public double getCalificacion() {
